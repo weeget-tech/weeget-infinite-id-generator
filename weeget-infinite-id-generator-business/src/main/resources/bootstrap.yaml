@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: weeget-infinite-id-generator
+  cloud:
+    nacos:
+      config:
+        file-extension: yml
+        shared-dataids: weeget-infinite-common.yml
+        refreshable-dataids: ${spring.cloud.nacos.config.shared-dataids},${spring.application.name}.yml
+        server-addr: ${DISCOVERY_ADDRESS:8.129.3.134}:8848
+        namespace: ${DISCOVERY_NAMESPACE:00486c1b-f75c-4cbf-ab2c-27575d467edf}
+      discovery:
+        server-addr: ${DISCOVERY_ADDRESS:8.129.3.134}:8848
+        namespace: ${DISCOVERY_NAMESPACE:00486c1b-f75c-4cbf-ab2c-27575d467edf}
+  main:
+    allow-bean-definition-overriding: true
