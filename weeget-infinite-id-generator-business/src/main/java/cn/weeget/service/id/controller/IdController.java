@@ -19,6 +19,8 @@ public class IdController {
 
     public static final int MAX_NUM = 100;
 
+    public static final int MIN_NUM = 1;
+
 
     @Resource
     private UidGenerator uidGenerator;
@@ -31,11 +33,11 @@ public class IdController {
 
     @RequestMapping("/getNextIds")
     public List<Long> getNextIds(@RequestParam int num) {
-        if (num > 100) {
-            throw new BusinessException("每次获取数量不能大于100");
+        if (num < MIN_NUM || num > MAX_NUM) {
+            throw new BusinessException("批量获取id数量范围：1~100");
         }
         List<Long> ids = new ArrayList<>(num);
-        for (int i=0; i<MAX_NUM; i++) {
+        for (int i=0; i<num; i++) {
             ids.add(uidGenerator.getUID());
         }
         return ids;
