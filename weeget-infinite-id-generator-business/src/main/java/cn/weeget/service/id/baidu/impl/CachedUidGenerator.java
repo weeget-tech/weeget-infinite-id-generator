@@ -24,6 +24,7 @@ import cn.weeget.service.id.baidu.exception.UidGenerateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
+import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
 import java.util.ArrayList;
@@ -46,6 +47,7 @@ import java.util.List;
  * 
  * @author yutianbao
  */
+@Component
 public class CachedUidGenerator extends DefaultUidGenerator implements DisposableBean {
     private static final Logger LOGGER = LoggerFactory.getLogger(CachedUidGenerator.class);
     private static final int DEFAULT_BOOST_POWER = 3;

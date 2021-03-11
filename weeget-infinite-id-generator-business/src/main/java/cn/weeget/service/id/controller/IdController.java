@@ -3,6 +3,7 @@ package cn.weeget.service.id.controller;
 import cn.weeget.service.id.baidu.UidGenerator;
 import cn.weeget.util.common.web.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +24,7 @@ public class IdController {
 
 
     @Resource
+    @Qualifier("defaultUidGenerator")
     private UidGenerator uidGenerator;
 
     @RequestMapping("/getNextId")
