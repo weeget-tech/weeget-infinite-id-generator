@@ -4,44 +4,48 @@
     <resultMap id="workerNodeRes"
                type="cn.weeget.service.id.baidu.worker.entity.WorkerNodeEntity">
         <id column="ID" jdbcType="BIGINT" property="id" />
-        <result column="HOST_NAME" jdbcType="VARCHAR" property="hostName" />
-        <result column="PORT" jdbcType="VARCHAR" property="port" />
-        <result column="TYPE" jdbcType="INTEGER" property="type" />
-        <result column="LAUNCH_DATE" jdbcType="DATE" property="launchDate" />
-        <result column="MODIFIED" jdbcType="TIMESTAMP" property="modified" />
-        <result column="CREATED" jdbcType="TIMESTAMP" property="created" />
+        <result column="host_name" jdbcType="VARCHAR" property="hostName" />
+        <result column="port" jdbcType="VARCHAR" property="port" />
+        <result column="type" jdbcType="INTEGER" property="type" />
+        <result column="launch_date" jdbcType="DATE" property="launchDate" />
+        <result column="modified" jdbcType="TIMESTAMP" property="modified" />
+        <result column="created" jdbcType="TIMESTAMP" property="created" />
     </resultMap>
 
     <insert id="addWorkerNode" useGeneratedKeys="true" keyProperty="id"
             parameterType="cn.weeget.service.id.baidu.worker.entity.WorkerNodeEntity">
-		INSERT INTO WORKER_NODE
-		(HOST_NAME,
-		PORT,
-		TYPE,
-		LAUNCH_DATE,
-		MODIFIED,
-		CREATED)
-		VALUES (
-		#{hostName},
-		#{port},
-		#{type},
-		#{launchDate},
-		NOW(),
-		NOW())
+		INSERT INTO worker_node
+		(
+			host_name,
+			port,
+			type,
+			launch_date,
+			modified,
+			created
+		)
+		values
+		(
+			#{hostName},
+			#{port},
+			#{type},
+			#{launchDate},
+			now(),
+			now()
+		)
 	</insert>
 
     <select id="getWorkerNodeByHostPort" resultMap="workerNodeRes">
-		SELECT
-		ID,
-		HOST_NAME,
-		PORT,
-		TYPE,
-		LAUNCH_DATE,
-		MODIFIED,
-		CREATED
-		FROM
-		WORKER_NODE
-		WHERE
-		HOST_NAME = #{host} AND PORT = #{port}
+		select
+			id,
+			host_name,
+			port,
+			type,
+			launch_date,
+			modified,
+			created
+			from
+			worker_node
+		where
+			host_name = #{host} and port = #{port}
 	</select>
 </mapper>
