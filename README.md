@@ -10,16 +10,16 @@
 ```
 1) 获取单个id
 
-  http://127.0.0.1:9990/getNextId
+  http://127.0.0.1:9999/getNextId
 
 2) 批量获取id 
 
-  http://127.0.0.1:9990/getNextIds?num=100  num目前取值限制 0< num <=100
+  http://127.0.0.1:9999/getNextIds?num=100  num目前取值限制 0< num <=100
 
 
 3）解析id内容
 
-  http://127.0.0.1:9990/parseId?id=xxxxxxxxxxxxxxxxxx(具体的id值)
+  http://127.0.0.1:9999/parseId?id=xxxxxxxxxxxxxxxxxx(具体的id值)
     
 
 ```
