@@ -14,3 +14,7 @@ spring:
         namespace: ${DISCOVERY_NAMESPACE:00486c1b-f75c-4cbf-ab2c-27575d467edf}
   main:
     allow-bean-definition-overriding: true
+
+
+server:
+  port: 9999
