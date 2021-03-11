@@ -23,8 +23,15 @@ public class IdController {
     public static final int MIN_NUM = 1;
 
 
+   /*
     @Resource
     @Qualifier("defaultUidGenerator")
+    private UidGenerator uidGenerator;
+   */
+
+
+    @Resource
+    @Qualifier("cachedUidGenerator")
     private UidGenerator uidGenerator;
 
     /**
