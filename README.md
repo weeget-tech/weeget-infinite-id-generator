@@ -22,10 +22,10 @@
   http://127.0.0.1:9990/parseId?id=xxxxxxxxxxxxxxxxxx(具体的id值)
     
 
-```java
+```
 
 * Feign调用
-``` java
+``` 
 1) 引入feign客户端包
         <dependency>
             <groupId>cn.weeget</groupId>
