@@ -27,12 +27,21 @@ public class IdController {
     @Qualifier("defaultUidGenerator")
     private UidGenerator uidGenerator;
 
+    /**
+     * 获取单个id
+     * @return
+     */
     @RequestMapping("/getNextId")
     public Long getNextId() {
         long id = uidGenerator.getUID();
         return id;
     }
 
+    /**
+     * 批量获取id
+     * @param num
+     * @return
+     */
     @RequestMapping("/getNextIds")
     public List<Long> getNextIds(@RequestParam int num) {
         if (num < MIN_NUM || num > MAX_NUM) {
@@ -45,6 +54,11 @@ public class IdController {
         return ids;
     }
 
+    /**
+     * 解析id
+     * @param id
+     * @return
+     */
     @RequestMapping("/parseId")
     public String parseId(@RequestParam long id) {
         return uidGenerator.parseUID(id);
