@@ -20,7 +20,9 @@
 3）解析id内容
 
   http://127.0.0.1:9999/parseId?id=xxxxxxxxxxxxxxxxxx(具体的id值)
-    
+   
+  // 解析后的内容格式：{"UID":"5212172199309377540","timestamp":"2021-03-10 17:16:16","workerId":"4","sequence":"4"}
+      
 
 ```
 
@@ -45,9 +47,10 @@
     List<Long> ids = idFeignClient.getNextIds(10);
 
     // 解析id
-    // 解析后的内容：{"UID":"5212172199309377540","timestamp":"2021-03-10 17:16:16","workerId":"4","sequence":"4"}
-    
     String parse = idFeignClient.parseId(id);
+
+    // 解析后的内容格式：{"UID":"5212172199309377540","timestamp":"2021-03-10 17:16:16","workerId":"4","sequence":"4"}
+        
              
 
 ```
