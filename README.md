@@ -40,6 +40,9 @@ UidGenerator是Java实现的, 基于Snowflake算法的唯一ID生成器。UidGen
         </dependency>
 
 2） 获取id
+
+    @Resource
+    private IdFeignClient idFeignClient;
     
      // 单个id
     Long id = idFeignClient.getNextId();

@@ -33,8 +33,7 @@ public class DefaultUidGeneratorTest {
     private UidGenerator uidGenerator;
 
 
-    @Resource
-    private IdFeignClient idFeignClient;
+
 
 
 
