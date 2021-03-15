@@ -1,7 +1,7 @@
 ### ID生成器 weeget-infinite-id-generator
 ---
 
-###### 实现参考 https://github.com/baidu/uid-generator
+###### 实现请参考 https://github.com/baidu/uid-generator
 
 ###### 压测数据
 ```
