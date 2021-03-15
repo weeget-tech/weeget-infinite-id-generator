@@ -3,6 +3,21 @@
 
 ###### 实现参考 https://github.com/baidu/uid-generator
 
+###### 压测数据
+```
+
+1) 配置：2C4G 1个pod
+
+   获取单个ID       TPS:4300+  RT:51ms 
+   批量获取10个ID   TPS:3900+  RT:51ms
+
+2) 配置：2C4G 5个pod
+   
+   获取单个ID       TPS:20000+  RT:40ms 
+   批量获取10个ID   TPS:19000+  RT:46ms
+
+
+```
 
 ###### 使用方法
 
