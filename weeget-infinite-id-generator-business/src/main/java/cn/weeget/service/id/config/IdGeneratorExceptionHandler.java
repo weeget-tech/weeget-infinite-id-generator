@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class IdGeneratorExceptionHandler {
 
     @ExceptionHandler(value =Exception.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public String exceptionHandler(Exception e){
         log.error(e.getMessage(), e);
         return e.getMessage();
