@@ -3,6 +3,25 @@
 
 ###### 实现请参考 https://github.com/baidu/uid-generator
 
+
+Snowflake算法
+-------------
+
+目前本项目Snowflake的配置如下：
+
+* sign(1bit)  
+  固定1bit符号标识，即生成的UID为正数。
+
+* delta seconds (31 bits)  
+  当前时间，相对于时间基点"2010-01-01"的增量值，单位：秒，最多可支持约69年
+
+* worker id (19 bits)  
+  机器id，最多可支持约52w次机器启动。内置实现为在启动时由数据库分配，默认分配策略为用后即弃，后续可提供复用策略。
+
+* sequence (13 bits)   
+  每秒下的并发序列，13 bits可支持每秒8192个并发。
+
+
 ###### 压测数据
 ```
 
