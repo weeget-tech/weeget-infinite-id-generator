@@ -64,13 +64,16 @@ public class DefaultUidGenerator implements UidGenerator, InitializingBean {
     private static final Logger LOGGER = LoggerFactory.getLogger(DefaultUidGenerator.class);
 
     /** Bits allocate */
-    protected int timeBits = 28;
-    protected int workerBits = 22;
+    protected int timeBits = 31;
+    protected int workerBits = 19;
     protected int seqBits = 13;
 
     /** Customer epoch, unit as second. For example 2021-01-01 (ms: 1609430400000L)*/
-    protected String epochStr = "2021-01-01";
-    protected long epochSeconds = TimeUnit.MILLISECONDS.toSeconds(1609430400000L);
+    //protected String epochStr = "2021-01-01";
+    //protected long epochSeconds = TimeUnit.MILLISECONDS.toSeconds(1609430400000L);
+
+    protected String epochStr = "2010-01-01";
+    protected long epochSeconds = TimeUnit.MILLISECONDS.toSeconds(1262275200000L);
 
     /** Stable fields after spring bean initializing */
     protected BitsAllocator bitsAllocator;
