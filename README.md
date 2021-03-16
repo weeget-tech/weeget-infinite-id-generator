@@ -42,29 +42,24 @@ Snowflake算法
 
 * http调用（内网）
 ```
-1) 获取单个id
+ 
+ 测试、财务、集成、生产环境使用：http://weeget-infinite-id-generator-svc.inspire:9999
+ 预发布环境使用：http://weeget-infinite-id-generator-svc.gray-inspire-v2:9999
+ 
 
-  测试、财务、集成、生产环境使用：
-  http://weeget-infinite-id-generator-svc.inspire:9999/getNextId
+1) 获取单个id：  
 
-  预发布环境使用：
-  http://weeget-infinite-id-generator-svc.gray-inspire-v2:9999/getNextId
+   /getNextId
 
 2) 批量获取id 
 
-  
-
-  测试、财务、集成、生产环境使用：
-  http://weeget-infinite-id-generator-svc.inspire:9999/getNextIds?num=10  
-
-  预发布环境：
-  http://weeget-infinite-id-generator-svc.gray-inspire-v2:9999/getNextIds?num=10
+  /getNextIds?num=10  
 
   num目前取值限制 0< num <=100
 
 3）解析id内容
 
-  http://weeget-infinite-id-generator-svc.inspire:9999/parseId?id=xxxxxxxxxxxxxxxxxx(具体的id值)
+  /parseId?id=xxxxxxxxxxxxxxxxxx(具体的id值)
    
   // 解析后的内容格式：{"UID":"5212172199309377540","timestamp":"2021-03-10 17:16:16","workerId":"4","sequence":"4"}
       
