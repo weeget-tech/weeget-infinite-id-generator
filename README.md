@@ -44,6 +44,7 @@ Snowflake算法
 ```
  
  测试、财务、集成、生产环境使用：http://weeget-infinite-id-generator-svc.inspire:9999
+ 
  预发布环境使用：http://weeget-infinite-id-generator-svc.gray-inspire-v2:9999
  
 
