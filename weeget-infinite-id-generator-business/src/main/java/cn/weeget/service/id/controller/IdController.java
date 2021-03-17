@@ -41,6 +41,7 @@ public class IdController {
     @RequestMapping("/getNextId")
     public Long getNextId() {
         long id = uidGenerator.getUID();
+        log.info("id={}", id);
         return id;
     }
 
