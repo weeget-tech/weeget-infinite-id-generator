@@ -38,7 +38,21 @@ Snowflake算法
 
 ```
 
+###### ID生成策略
+       
+  策略1： 预先生成，放到缓存中 （超高性能）
+       
+  策略2： 实时生成
+       
+       
+  一般使用策略1即可，像需要根据订单号解析订单生成时间的业务场景，可以使用策略2
+
 ###### 使用方法
+
+
+
+
+
 
 * http调用（内网）
 ```
@@ -48,17 +62,32 @@ Snowflake算法
  预发布环境使用：http://weeget-infinite-id-generator-svc.gray-inspire-v2:9999
  
 
-1) 获取单个id：  
+1. 获取id 
+
+   1) 获取单个id（预先生成，从缓存中取）：  
 
    /getNextId
 
-2) 批量获取id 
+   2) 批量获取id （预先生成，从缓存中取）
 
-  /getNextIds?num=10  
+   /getNextIds?num=10  
 
-  num目前取值限制 0< num <=100
+   num目前取值限制 0< num <=100
 
-3）解析id内容
+
+
+   3) 获取单个id（实时生成）：  
+
+   /getRealtimeId
+
+   4) 批量获取id（实时生成）
+
+    /getRealtimeIds?num=10  
+
+    num目前取值限制 0< num <=100
+
+
+2. 解析id内容
 
   /parseId?id=xxxxxxxxxxxxxxxxxx(具体的id值)
    
@@ -69,23 +98,34 @@ Snowflake算法
 
 * Feign调用
 ``` 
-1) 引入feign客户端包
+1. 引入feign客户端包
         <dependency>
             <groupId>cn.weeget</groupId>
             <artifactId>weeget-infinite-id-generator-feign</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>2.0.0</version>
         </dependency>
 
-2） 获取id
+2. 获取id
 
     @Resource
     private IdFeignClient idFeignClient;
     
-     // 单个id
+
+    1) 获取单个id（预先生成，从缓存中取）
     Long id = idFeignClient.getNextId();
 
-    // 批量获取id
+    2）批量获取id（预先生成，从缓存中取）
     List<Long> ids = idFeignClient.getNextIds(10);
+
+
+
+    3）单个id（实时生成）
+    Long id = idFeignClient.getRealtimeId();
+   
+    4）批量获取id（实时生成）
+    List<Long> ids = idFeignClient.getRealtimeIds(10);
+
+3. 解析id
 
     // 解析id
     String parse = idFeignClient.parseId(id);

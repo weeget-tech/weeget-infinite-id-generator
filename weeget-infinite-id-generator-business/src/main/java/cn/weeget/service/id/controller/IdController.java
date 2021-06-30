@@ -23,11 +23,9 @@ public class IdController {
     public static final int MIN_NUM = 1;
 
 
-   /*
     @Resource
     @Qualifier("defaultUidGenerator")
-    private UidGenerator uidGenerator;
-   */
+    private UidGenerator defaultUidGenerator;
 
 
     @Resource
@@ -35,7 +33,7 @@ public class IdController {
     private UidGenerator uidGenerator;
 
     /**
-     * 获取单个id
+     * 获取单个id （预先生成，从缓存中取）
      * @return
      */
     @RequestMapping("/getNextId")
@@ -45,7 +43,7 @@ public class IdController {
     }
 
     /**
-     * 批量获取id
+     * 批量获取id （预先生成，从缓存中取）
      * @param num
      * @return
      */
@@ -70,4 +68,37 @@ public class IdController {
     public String parseId(@RequestParam long id) {
         return uidGenerator.parseUID(id);
     }
+
+
+
+    /**
+     * 获取单个id （实时生成）
+     * @return
+     */
+    @RequestMapping("/getRealtimeId")
+    public Long getRealtimeId() {
+        long id = defaultUidGenerator.getUID();
+        return id;
+    }
+
+
+    /**
+     * 批量获取id （实时生成）
+     * @param num
+     * @return
+     */
+    @RequestMapping("/getRealtimeIds")
+    public List<Long> getRealtimeIds(@RequestParam int num) {
+        if (num < MIN_NUM || num > MAX_NUM) {
+            throw new BusinessException("批量获取id数量范围：1~100");
+        }
+        List<Long> ids = new ArrayList<>(num);
+        for (int i=0; i<num; i++) {
+            ids.add(defaultUidGenerator.getUID());
+        }
+        return ids;
+    }
+
+
+
 }
