@@ -56,11 +56,6 @@ Snowflake算法
 
 * http调用（内网）
 ```
- 
- 测试、财务、集成、生产环境使用：http://weeget-infinite-id-generator-svc.inspire:9999
- 
- 预发布环境使用：http://weeget-infinite-id-generator-svc.gray-inspire-v2:9999
- 
 
 1. 获取id 
 
