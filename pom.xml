@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>cn.weeget</groupId>
+        <artifactId>weeget-infinite-util-pom</artifactId>
+        <version>1.1.24-SNAPSHOT</version>
+    </parent>
+
+    <modules>
+        <module>weeget-infinite-id-generator-business</module>
+        <module>weeget-infinite-id-generator-feign</module>
+    </modules>
+
+    <name>weeget-infinite-id-generator</name>
+    <artifactId>weeget-infinite-id-generator</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <description>id生成器</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <skipTests>true</skipTests>
+    </properties>
+
+    <!--私服 快照支持-->
+    <repositories>
+        <repository>
+            <id>maven-weeget</id>
+            <name>internal nexus repository</name>
+            <layout>default</layout>
+            <url>http://nexus.weeget.cn/repository/maven-public</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <name>Nexus Release Repository</name>
+            <url>http://nexus.weeget.cn/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <name>Nexus Snapshot Repository</name>
+            <url>http://nexus.weeget.cn/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>
